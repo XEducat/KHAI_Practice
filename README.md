@@ -7,7 +7,7 @@
 
 ## Діаграма класів
 
-![Діаграма класів](https://github.com/XEducat/KHAI_Practice/issues/1#issue-2000528577)
+![Діаграма класів](https://github.com/XEducat/KHAI_Practice/assets/113421299/45babb28-d199-47b7-a06f-7833536608f3)
 
 ## Класи та Інтерфейси
 
