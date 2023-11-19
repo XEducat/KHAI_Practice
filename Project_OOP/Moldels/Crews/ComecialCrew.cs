@@ -13,7 +13,7 @@ namespace Project_OOP.Moldels.Crews
 
         public int Membership { get; private set; }    // К-сть членів
 
-        public CommercialCrew(Pilot Сapitan, Pilot FirstPilot, Pilot? SecondPilot = null)
+        public CommercialCrew(Pilot capitan, Pilot firstPilot, Pilot? secondPilot = null)
         {
             throw new NotImplementedException();
         }

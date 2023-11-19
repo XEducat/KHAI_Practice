@@ -8,7 +8,7 @@
         public string Name { get; set; }            // Iм'я
         public string TicketNumber { get; set; }    // Номер білету
 
-        public Passenger(string Name, string TicketNumber)
+        public Passenger(string name, string ticketNumber)
         {
             throw new NotImplementedException();
         }

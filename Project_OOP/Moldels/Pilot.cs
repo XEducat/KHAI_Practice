@@ -6,7 +6,7 @@
         public int Age { get; set; }         // Вік
         public int Expirience { get; set; }  // Досвід
 
-        public Pilot(string Name, int Age, int Expirience)
+        public Pilot(string name, int age, int expirience)
         {
             throw new NotImplementedException();
         }

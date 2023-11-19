@@ -19,7 +19,7 @@ namespace Project_OOP.Moldels.Aircrafts
             throw new NotImplementedException();
         }
 
-        public MilitaryAircraft(string Model, string Number, int NumberOfSeats)
+        public MilitaryAircraft(string model, string number, int numberOfSeats)
         {
             throw new NotImplementedException();
         }

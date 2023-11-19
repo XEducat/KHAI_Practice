@@ -12,7 +12,7 @@ namespace Project_OOP.Moldels.Crews
 
         public int Membership { get; private set; }    // К-сть членів
 
-        public MilitaryCrew(Pilot Pilot, Pilot SecondPilot)
+        public MilitaryCrew(Pilot pilot, Pilot secondPilot)
         {
             throw new NotImplementedException();
         }

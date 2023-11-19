@@ -12,8 +12,8 @@ namespace Project_OOP.Moldels.Aircrafts
         public string Number { get; private set; }
         public int NumberOfSeats { get; private set; }
 
-        private List<Passenger> passengers = new List<Passenger>(); // Список пасажирів
         public CommercialCrew crew;                                 // Екіпаж літаку
+        private List<Passenger> passengers = new List<Passenger>(); // Список пасажирів
 
         public CommercialAircraft(string model, string number, int numberOfSeats, CommercialCrew crew) : this(model, number, numberOfSeats)
         {
@@ -36,7 +36,7 @@ namespace Project_OOP.Moldels.Aircrafts
             throw new NotImplementedException();
         }
 
-        public void addPassengers(IEnumerable<Passenger> passengersToAdd)
+        public void addPassengers(List<Passenger> passengersToAdd)
         {
             throw new NotImplementedException();
         }
