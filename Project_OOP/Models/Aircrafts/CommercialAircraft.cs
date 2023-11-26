@@ -6,25 +6,16 @@ namespace Project_OOP.Moldels.Aircrafts
     /// <summary>
     /// Клас характеризує, комерційний літак
     /// </summary>
-    public class CommercialAircraft : IAircraft
+    public class CommercialAircraft : Aircraft
     {
-        public string Model { get; private set; }
-        public string Number { get; private set; }
-        public int NumberOfSeats { get; private set; }
-
-        public List<Person> passengerTrain { get; private set; } = new List<Person>();  // Пасажирський склад
-
-
-        public CommercialAircraft(string model, string number, int numberOfSeats, List<Person> passengerTrain) : this(model, number, numberOfSeats)
+        public CommercialAircraft(string model, string number, int numberOfSeats, List<Person> passengerTrain) : base(model, number, numberOfSeats)
         {
             this.passengerTrain = passengerTrain;
         }
 
-        public CommercialAircraft(string Model, string Number, int NumberOfSeats)
+        public CommercialAircraft(string Model, string Number, int NumberOfSeats) : base(Model, Number, NumberOfSeats)
         {
-            this.Model = Model;
-            this.Number = Number;
-            this.NumberOfSeats = NumberOfSeats;
+
         }
 
         // Повертає список пасажирів
@@ -53,37 +44,12 @@ namespace Project_OOP.Moldels.Aircrafts
             passengerTrain.AddRange(passengersToAdd);
         }
 
-        // Повертає екіпаж літака
-        public List<Person> getCrew()
-        {
-            List<Person> returnedCrew = new List<Person>();
-
-            foreach (var item in passengerTrain)
-            {
-                if (item is Passenger) continue;
-
-                returnedCrew.Add(item);
-            }
-
-            return returnedCrew;
-        }
-
-        public void setCrew(List<Person> crew)
+        public override void setCrew(List<Person> crew)
         {
             if (isValidCrew(crew))
                 throw new Exception("Екіпаж повинен мати капітана та першого пілота.");
 
-            List<Person> newCrew = new List<Person>();
-
-            foreach (var person in crew)
-            {
-                if (person is Passenger) continue;
-
-                newCrew.Add(person);
-            }
-
-            passengerTrain.RemoveAll(person => !(person is Passenger));
-            passengerTrain.AddRange(newCrew);
+            base.setCrew(crew);
         }
 
         // Перевірка на валідність екіпажу

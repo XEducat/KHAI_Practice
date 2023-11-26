@@ -40,13 +40,13 @@ namespace Other_Tests
         {
             // Arrange
             Airport airport = new Airport(new GeographicLocation(40.7128, -74.0060, "New York"));
-            IAircraft aircraft1 = new CommercialAircraft("Boeing 737", "ABC123", 150);
-            IAircraft aircraft2 = new MilitaryAircraft("F-16", "12345", 2);
+            Aircraft aircraft1 = new CommercialAircraft("Boeing 737", "ABC123", 150);
+            Aircraft aircraft2 = new MilitaryAircraft("F-16", "12345", 2);
             airport.AddAircraft(aircraft1);
             airport.AddAircraft(aircraft2);
 
             // Act
-            IAircraft? foundAircraft = airport.FindAircraft("ABC123");
+            Aircraft? foundAircraft = airport.FindAircraft("ABC123");
 
             // Assert
             Assert.IsNotNull(foundAircraft);

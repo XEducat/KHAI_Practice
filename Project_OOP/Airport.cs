@@ -8,36 +8,35 @@ namespace Project_OOP
         public string Name { get; private set; }      // Назва
         public string Code { get; private set; }      // Код
         public GeographicLocation Location  { get; private set; }  // Місцезнаходження
-        private List<IAircraft> aircrafts = new List<IAircraft>();    // Список літаків
+        public List<Aircraft> aircrafts { get; private set; } = new List<Aircraft>();    // Список літаків
 
         public Airport(GeographicLocation location)
         {
             this.Location = location;
         }
 
-        public void AddAircraft(IAircraft aircraft)
+        public void AddAircraft(Aircraft aircraft)
         {
             aircrafts.Add(aircraft);
         }
 
-        public IAircraft? FindAircraft(string number)
+        public Aircraft? FindAircraft(string number)
         {
             return aircrafts.FirstOrDefault(a => a.Number == number);
         }
 
-        public CommercialAircraft? FindCommercialAircraft(string Number)
+        public CommercialAircraft? FindCommercialAircraft(string number)
         {
-            return (CommercialAircraft?)FindAircraft(Number);
+            var aircraft = aircrafts.FirstOrDefault(a => a.Number == number);
+
+            return aircraft as CommercialAircraft;
         }
 
-        public MilitaryAircraft? FindMilitaryAircraft(string model)
+        public MilitaryAircraft? FindMilitaryAircraft(string number)
         {
-            return (MilitaryAircraft?)FindAircraft(model);
-        }
+            var aircraft = aircrafts.FirstOrDefault(a => a.Number == number);
 
-        public List<IAircraft> getAircrafts()
-        {
-            throw new NotImplementedException();
+            return aircraft as MilitaryAircraft;
         }
     }
 }

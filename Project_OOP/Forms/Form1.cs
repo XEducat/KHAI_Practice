@@ -11,9 +11,6 @@ namespace Project_OOP
         {
             InitializeComponent();
 
-            GeographicLocation geo = new GeographicLocation(70.90, 45.209, "LA San Marino");
-            string geoString = geo.ToString();
-
             GeographicLocation NewYoukLocation = new GeographicLocation(40.7128, -74.0060, "New York City");
             Airport LA = new Airport(NewYoukLocation);
 
@@ -29,27 +26,25 @@ namespace Project_OOP
             List<Person> Persons2 = new List<Person>() {
                 new Pilot("Вася", 48, 25, PersonalRole.Captain),
                 new Pilot("Петя", 30, 8, PersonalRole.FirstPilot),
-                new Passenger("Боб", 18, "#0001")
+                new Passenger("Боб", 18, "#0001"),
+                new Passenger("Женя", 19, "#0001")
             };
 
             // Виготовили новий літак, та завесли на аеродром. Після за ним закріпили екіпаж
-            MilitaryAircraft aircraft2 = new MilitaryAircraft("Airsock", "PM109", 34, Persons2);
+            MilitaryAircraft aircraft2 = new MilitaryAircraft("Lane", "D2", 22, Persons2);
             LA.AddAircraft(aircraft1);
             LA.AddAircraft(aircraft2);
 
-            List<Person> newPersons = new List<Person>() {
+            List<Person> newСrew = new List<Person>() {
                 new Pilot("Бери", 50, 28, PersonalRole.Captain),
-                new Pilot("Бран", 55, 30, PersonalRole.FirstPilot),
-                new Passenger("Женя", 19, "#0001")
+                new Pilot("Бран", 55, 30, PersonalRole.FirstPilot)
             };
 
             List<Passenger> pass = aircraft1.getPassangers();
             List<Person> crew1 = aircraft1.getCrew();
             List<Person> crew2 = aircraft2.getCrew();
-            aircraft2.setCrew(newPersons);
+            aircraft2.setCrew(newСrew);
             List<Person> newCrew = aircraft2.getCrew();
-
-
 
             //// Додання одного пасажиру
             //CommercialAircraft? commercial = LA.FindCommercialAircraft("PM109");
