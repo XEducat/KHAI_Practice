@@ -1,6 +1,7 @@
-﻿using Project_OOP.Moldels;
+﻿using Project_OOP;
+using Project_OOP.Models.Persons;
+using Project_OOP.Moldels;
 using Project_OOP.Moldels.Aircrafts;
-using Project_OOP.Moldels.Crews;
 
 namespace Aircraft_Tests
 {
@@ -11,19 +12,24 @@ namespace Aircraft_Tests
         public void ConstructorWithCrewSetsPropertiesCorrectly()
         {
             // Arrange
-            MilitaryCrew crew = new MilitaryCrew(new Pilot("John Doe", 38, 15), new Pilot("Jane Doe", 35, 10));
+            List<Person> crew = new List<Person>
+            {
+                new Pilot("John Doe", 38, 15, PersonalRole.Captain),
+                new Pilot("Jane Doe", 35, 10, PersonalRole.FirstPilot)
+            };
+
             string model = "F-16";
             string number = "12345";
             int numberOfSeats = 20;
 
             // Act
-            MilitaryAircraft militaryAircraft = new MilitaryAircraft(crew, model, number, numberOfSeats);
+            MilitaryAircraft militaryAircraft = new MilitaryAircraft(model, number, numberOfSeats, crew);
 
             // Assert
             Assert.AreEqual(model, militaryAircraft.Model);
             Assert.AreEqual(number, militaryAircraft.Number);
             Assert.AreEqual(numberOfSeats, militaryAircraft.NumberOfSeats);
-            Assert.AreEqual(crew, militaryAircraft.getCrew());
+            CollectionAssert.AreEqual(crew, militaryAircraft.getCrew());
         }
 
         [TestMethod]
@@ -41,7 +47,7 @@ namespace Aircraft_Tests
             Assert.AreEqual(model, militaryAircraft.Model);
             Assert.AreEqual(number, militaryAircraft.Number);
             Assert.AreEqual(numberOfSeats, militaryAircraft.NumberOfSeats);
-            Assert.IsNull(militaryAircraft.getCrew());
+            Assert.AreEqual(0, militaryAircraft.passengerTrain.Count);
         }
 
         [TestMethod]
@@ -49,13 +55,33 @@ namespace Aircraft_Tests
         {
             // Arrange
             MilitaryAircraft militaryAircraft = new MilitaryAircraft("F-16", "12345", 2);
-            MilitaryCrew crew = new MilitaryCrew(new Pilot("John Doe", 38, 15), new Pilot("Jane Doe", 35, 10));
+            List<Person> crew = new List<Person>
+            {
+                new Pilot("John Doe", 38, 15, PersonalRole.Captain),
+                new Pilot("Jane Doe", 35, 10, PersonalRole.FirstPilot)
+            };
 
             // Act
             militaryAircraft.setCrew(crew);
 
             // Assert
-            Assert.AreEqual(crew, militaryAircraft.getCrew());
+            CollectionAssert.AreEqual(crew, militaryAircraft.getCrew());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Екіпаж повинен мати капітана та першого пілота.")]
+        public void SetCrew_ThrowsExceptionForInvalidCrew()
+        {
+            // Arrange
+            MilitaryAircraft militaryAircraft = new MilitaryAircraft("F-16", "12345", 2);
+            List<Person> invalidCrew = new List<Person>
+            {
+                new Pilot("John Doe", 38, 15, PersonalRole.Captain),
+                new Passenger("Jane Doe", 25, "#0001")
+            };
+
+            // Act & Assert
+            militaryAircraft.setCrew(invalidCrew);
         }
     }
 }

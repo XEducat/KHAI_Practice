@@ -1,4 +1,6 @@
-﻿namespace Project_OOP.Interfaces
+﻿using Project_OOP.Moldels;
+
+namespace Project_OOP.Interfaces
 {
     public interface IAircraft
     {
@@ -6,6 +8,6 @@
         string Number { get; }      // Номер літака
         int NumberOfSeats { get; }  // Кількість місць (з урахуванням місць для екіпажу)
 
-        ICrew getCrew();
+        List<Person> getCrew();
     }
 }

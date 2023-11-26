@@ -1,6 +1,7 @@
 using Project_OOP.Interfaces;
 using Project_OOP;
 using Project_OOP.Moldels.Aircrafts;
+using Project_OOP.Models.Persons;
 
 namespace Other_Tests
 {
@@ -21,17 +22,17 @@ namespace Other_Tests
         }
 
         [TestMethod]
-        public void AddAircraft_AddsAircraftToList()
+        public void AddPassenger_AddsPassengerToList()
         {
             // Arrange
-            Airport airport = new Airport(new GeographicLocation(40.7128, -74.0060, "New York"));
-            IAircraft aircraft = new CommercialAircraft("Boeing 737", "ABC123", 150);
+            CommercialAircraft aircraft = new CommercialAircraft("Boeing", "123", 150);
+            Passenger passenger = new Passenger("John Doe", 30, "ABC123");
 
             // Act
-            airport.AddAircraft(aircraft);
+            aircraft.addPassenger(passenger);
 
             // Assert
-            CollectionAssert.Contains(airport.getAircrafts(), aircraft);
+            CollectionAssert.Contains(aircraft.getPassangers(), passenger);
         }
 
         [TestMethod]

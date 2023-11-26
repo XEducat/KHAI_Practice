@@ -12,12 +12,17 @@ public class GeographicLocation
     // Конструктор класу
     public GeographicLocation(double latitude, double longitude, string address)
     {
-        throw new NotImplementedException();
+        Latitude = latitude;
+        Longitude = longitude;
+        Address = address;
     }
 
     // Метод для виведення інформації про місцезнаходження
     public override string ToString()
     {
-        throw new NotImplementedException();
+        StringBuilder location = new StringBuilder();
+        location.Append($"Latitude: {Latitude}, Longitude: {Longitude}");
+        location.Append($"Address: {Address}");
+        return location.ToString();
     }
 }

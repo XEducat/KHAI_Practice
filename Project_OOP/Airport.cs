@@ -12,27 +12,27 @@ namespace Project_OOP
 
         public Airport(GeographicLocation location)
         {
-            throw new NotImplementedException();
+            this.Location = location;
         }
 
         public void AddAircraft(IAircraft aircraft)
         {
-            throw new NotImplementedException();
+            aircrafts.Add(aircraft);
         }
 
         public IAircraft? FindAircraft(string number)
         {
-            throw new NotImplementedException();
+            return aircrafts.FirstOrDefault(a => a.Number == number);
         }
 
-        public CommercialAircraft? FindCommercialAircraft(string number)
+        public CommercialAircraft? FindCommercialAircraft(string Number)
         {
-            throw new NotImplementedException();
+            return (CommercialAircraft?)FindAircraft(Number);
         }
 
-        public MilitaryAircraft? FindMilitaryAircraft(string number)
+        public MilitaryAircraft? FindMilitaryAircraft(string model)
         {
-            throw new NotImplementedException();
+            return (MilitaryAircraft?)FindAircraft(model);
         }
 
         public List<IAircraft> getAircrafts()

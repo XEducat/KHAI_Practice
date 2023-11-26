@@ -1,6 +1,7 @@
 ﻿using Project_OOP.Moldels;
+using Project_OOP;
 using Project_OOP.Moldels.Aircrafts;
-using Project_OOP.Moldels.Crews;
+using Project_OOP.Models.Persons;
 
 namespace Aircraft_Tests
 {
@@ -14,16 +15,21 @@ namespace Aircraft_Tests
             string model = "Boeing 737";
             string number = "ABC123";
             int numberOfSeats = 150;
-            CommercialCrew crew = new CommercialCrew(new Pilot("John Doe", 38, 15), new Pilot("Jane Doe", 35, 10));
+
+            List<Person> passengerTrain = new List<Person>() {
+            new Pilot("John Doe", 38, 15, PersonalRole.Captain),
+            new Pilot("Jane Doe", 35, 10, PersonalRole.FirstPilot),
+            new Passenger("Женя", 19, "#0001")
+        };
 
             // Act
-            CommercialAircraft commercialAircraft = new CommercialAircraft(model, number, numberOfSeats, crew);
+            CommercialAircraft commercialAircraft = new CommercialAircraft(model, number, numberOfSeats, passengerTrain);
 
             // Assert
             Assert.AreEqual(model, commercialAircraft.Model);
             Assert.AreEqual(number, commercialAircraft.Number);
             Assert.AreEqual(numberOfSeats, commercialAircraft.NumberOfSeats);
-            Assert.AreEqual(crew, commercialAircraft.getCrew());
+            CollectionAssert.AreEqual(passengerTrain, commercialAircraft.passengerTrain);
         }
 
         [TestMethod]
@@ -41,60 +47,65 @@ namespace Aircraft_Tests
             Assert.AreEqual(model, commercialAircraft.Model);
             Assert.AreEqual(number, commercialAircraft.Number);
             Assert.AreEqual(numberOfSeats, commercialAircraft.NumberOfSeats);
-            Assert.IsNull(commercialAircraft.getCrew());
+            Assert.AreEqual(0, commercialAircraft.passengerTrain.Count);
         }
 
         [TestMethod]
-        public void SetCrew_SetsCrewCorrectly()
+        public void GetCrew_ReturnsValidCrew()
+        {
+            // Arrange
+            List<Person> validCrew = new List<Person> // Створюємо колекцію пасажирів
+            {
+                new Pilot("Jane", 40, 15, PersonalRole.Captain),
+                new Pilot("Bane", 35, 10, PersonalRole.FirstPilot)
+            };
+            List<Person> passengerTrain = new List<Person>(validCrew) // Створюємо колекцію в якій буде наш склад (Пасажири, пілоти тощо. )
+            {
+                new Passenger("Dan ", 30, "A00123"),
+                new Passenger("Ivan ", 22, "A00124")
+            };
+
+            CommercialAircraft commercialAircraft = new CommercialAircraft("Boeing 737", "ABC123", 150, passengerTrain);
+
+
+            // Act & Assert
+            CollectionAssert.AreEquivalent(validCrew, commercialAircraft.getCrew());
+        }
+
+
+        [TestMethod]
+        public void SetCrew_SetsValidCrew()
         {
             // Arrange
             CommercialAircraft commercialAircraft = new CommercialAircraft("Boeing 737", "ABC123", 150);
-            CommercialCrew crew = new CommercialCrew(new Pilot("John Doe", 38, 15), new Pilot("Jane Doe", 35, 10));
+
+            List<Person> validCrew = new List<Person>
+            {
+                new Pilot("Captain", 40, 15, PersonalRole.Captain),
+                new Pilot("First Officer", 35, 10, PersonalRole.FirstPilot)
+            };
 
             // Act
-            commercialAircraft.setCrew(crew);
+            commercialAircraft.setCrew(validCrew);
 
             // Assert
-            Assert.AreEqual(crew, commercialAircraft.getCrew());
+            CollectionAssert.AreEquivalent(validCrew, commercialAircraft.getCrew());
         }
 
         [TestMethod]
-        public void GetPassengers_ReturnsCorrectPassengerList()
+        [ExpectedException(typeof(Exception))]
+        public void SetCrew_ThrowsExceptionForInvalidCrew()
         {
             // Arrange
-            CommercialAircraft commercialAircraft = new CommercialAircraft("Boeing 737", "ABC123", 150);
-            Passenger passenger1 = new Passenger("Passenger1", "#00001");
-            Passenger passenger2 = new Passenger("Passenger2", "#00002");
+            CommercialAircraft commercialAircraft = new CommercialAircraft("Airbus", "101", 160);
+            List<Person> invalidCrew = new List<Person>
+            {
+                new Pilot("Captain", 40, 15, PersonalRole.Captain),
+                new Passenger("John Doe", 30, "ABC123")
+            };
 
-            // Act
-            commercialAircraft.addPassenger(passenger1);
-            commercialAircraft.addPassenger(passenger2);
-            var passengers = commercialAircraft.getPassangers();
-
-            // Assert
-            Assert.IsNotNull(passengers);
-            Assert.AreEqual(2, passengers.Count);
-            CollectionAssert.Contains(passengers, passenger1);
-            CollectionAssert.Contains(passengers, passenger2);
-        }
-
-        [TestMethod]
-        public void AddPassengers_ReturnsCorrectPassengerList()
-        {
-            // Arrange
-            CommercialAircraft commercialAircraft = new CommercialAircraft("Boeing 737", "ABC123", 150);
-            Passenger passenger1 = new Passenger("Passenger1", "#00001");
-            Passenger passenger2 = new Passenger("Passenger2", "#00002");
-
-            // Act
-            commercialAircraft.addPassengers(new List<Passenger> { passenger1, passenger2 });
-            var passengers = commercialAircraft.getPassangers();
-
-            // Assert
-            Assert.IsNotNull(passengers);
-            Assert.AreEqual(2, passengers.Count);
-            CollectionAssert.Contains(passengers, passenger1);
-            CollectionAssert.Contains(passengers, passenger2);
+            // Act & Assert
+            commercialAircraft.setCrew(invalidCrew);
         }
     }
 }
