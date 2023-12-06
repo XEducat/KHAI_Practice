@@ -6,7 +6,7 @@ namespace Project_OOP.Interfaces
 {
     public abstract class Aircraft
     {
-        private string? model;
+        protected string? model;
         public virtual string? Model  // Модель літака
         { 
             get 

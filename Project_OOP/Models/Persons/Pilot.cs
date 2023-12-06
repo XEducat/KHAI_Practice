@@ -2,6 +2,7 @@
 using Project_OOP.Moldels;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project_OOP.Models.Persons
 {
@@ -21,7 +22,23 @@ namespace Project_OOP.Models.Persons
                 {
                     throw new ValidationException("Данна кількість робосого стажу неможлива. Вік не відповідає досвіду");
                 }
-            } 
+            }
+        }
+
+        public override int Age
+        {
+            get { return age; }
+            protected set
+            {
+                if (value >= 18 && value <= MAX_AGE)
+                {
+                    age = value;
+                }
+                else
+                {
+                    throw new FormatException("Пілот не повнолітний. Введіть коректне число (від 18 до 140).");
+                }
+            }
         }
 
         public PersonalRole Role { get; set; }

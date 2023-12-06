@@ -7,8 +7,8 @@ namespace Project_OOP.Moldels
     // Базовий клас для всіх персон (Наприклад: пасажир, пілот, стюардеса і тд. )
     public abstract class Person
     {
-        private string? name; // Ім'я
-        private int age;     // Вік
+        protected string? name; // Ім'я
+        protected int age;     // Вік
 
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Ім'я повинно містити від 2 до 50 символів")]
         public virtual string? Name
@@ -41,13 +41,13 @@ namespace Project_OOP.Moldels
             get { return age; } 
             protected set
             {
-                if(value >= 18 && value <= MAX_AGE)
+                if(value >= 1 && value <= MAX_AGE)
                 {
                     age = value;
                 }
                 else
                 {
-                    throw new FormatException("Введена кілкість років є неможливою. Введіть коректне число (від 18 до 140).");
+                    throw new FormatException("Введена кілкість років є неможливою. Введіть коректне число (від 1 до 140).");
                 }
             }
         }
