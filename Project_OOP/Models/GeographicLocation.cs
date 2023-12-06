@@ -21,8 +21,8 @@ public class GeographicLocation
     public override string ToString()
     {
         StringBuilder location = new StringBuilder();
-        location.Append($"Latitude: {Latitude}, Longitude: {Longitude}");
-        location.Append($"Address: {Address}");
+        location.Append($"{Latitude}°, {Longitude}°\n");
+        location.Append($"{Address}");
         return location.ToString();
     }
 }

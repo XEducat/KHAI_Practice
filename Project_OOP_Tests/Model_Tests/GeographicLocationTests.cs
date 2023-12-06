@@ -1,6 +1,7 @@
-﻿namespace Other_Tests
+﻿namespace Model_Tests
 {
     [TestClass]
+    [TestCategory("ModelTests")]
     public class GeographicLocationTests
     {
         [TestMethod]
@@ -33,9 +34,9 @@
             string locationString = location.ToString();
 
             // Assert
-            StringAssert.Contains(locationString, $"Latitude: {latitude}");
-            StringAssert.Contains(locationString, $"Longitude: {longitude}");
-            StringAssert.Contains(locationString, $"Address: {address}");
+            StringAssert.Contains(locationString, $"{latitude}");
+            StringAssert.Contains(locationString, $"{longitude}");
+            StringAssert.Contains(locationString, $"{address}");
         }
     }
 }

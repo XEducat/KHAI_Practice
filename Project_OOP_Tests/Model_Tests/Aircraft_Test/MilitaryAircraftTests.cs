@@ -1,9 +1,9 @@
-﻿using Project_OOP;
+﻿using Project_OOP.Enums;
 using Project_OOP.Models.Persons;
 using Project_OOP.Moldels;
 using Project_OOP.Moldels.Aircrafts;
 
-namespace Aircraft_Tests
+namespace Model_Tests.AircraftTests
 {
     [TestClass]
     public class MilitaryAircraftTests
@@ -14,8 +14,8 @@ namespace Aircraft_Tests
             // Arrange
             List<Person> crew = new List<Person>
             {
-                new Pilot("John Doe", 38, 15, PersonalRole.Captain),
-                new Pilot("Jane Doe", 35, 10, PersonalRole.FirstPilot)
+                new Pilot("John", 38, 15, PersonalRole.Captain),
+                new Pilot("Jane", 35, 10, PersonalRole.FirstPilot)
             };
 
             string model = "F-16";
@@ -57,8 +57,8 @@ namespace Aircraft_Tests
             MilitaryAircraft militaryAircraft = new MilitaryAircraft("F-16", "12345", 2);
             List<Person> crew = new List<Person>
             {
-                new Pilot("John Doe", 38, 15, PersonalRole.Captain),
-                new Pilot("Jane Doe", 35, 10, PersonalRole.FirstPilot)
+                new Pilot("John", 38, 15, PersonalRole.Pilot),
+                new Pilot("Jane", 35, 10, PersonalRole.FirstPilot)
             };
 
             // Act
@@ -76,8 +76,8 @@ namespace Aircraft_Tests
             MilitaryAircraft militaryAircraft = new MilitaryAircraft("F-16", "12345", 2);
             List<Person> invalidCrew = new List<Person>
             {
-                new Pilot("John Doe", 38, 15, PersonalRole.Captain),
-                new Passenger("Jane Doe", 25, "#0001")
+                new Pilot("John", 38, 15, PersonalRole.Captain),
+                new Passenger("Jane", 25, "#0001")
             };
 
             // Act & Assert

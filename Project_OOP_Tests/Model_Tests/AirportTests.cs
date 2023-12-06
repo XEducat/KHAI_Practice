@@ -1,11 +1,12 @@
 using Project_OOP.Interfaces;
-using Project_OOP;
 using Project_OOP.Moldels.Aircrafts;
 using Project_OOP.Models.Persons;
+using Project_OOP.Models;
 
-namespace Other_Tests
+namespace Model_Tests
 {
     [TestClass]
+    [TestCategory("ModelTests")]
     public class AirportTests
     {
         [TestMethod]
@@ -13,11 +14,15 @@ namespace Other_Tests
         {
             // Arrange
             GeographicLocation location = new GeographicLocation(40.7128, -74.0060, "New York");
+            string Name = "New Air";
+            string Code = "A000";
 
             // Act
-            Airport airport = new Airport(location);
+            Airport airport = new Airport(Name, Code, location);
 
             // Assert
+            Assert.AreEqual(Name, airport.Name);
+            Assert.AreEqual(Code, airport.Code);
             Assert.AreEqual(location, airport.Location);
         }
 
@@ -26,7 +31,7 @@ namespace Other_Tests
         {
             // Arrange
             CommercialAircraft aircraft = new CommercialAircraft("Boeing", "123", 150);
-            Passenger passenger = new Passenger("John Doe", 30, "ABC123");
+            Passenger passenger = new Passenger("John", 30, "ABC123");
 
             // Act
             aircraft.addPassenger(passenger);
@@ -39,8 +44,8 @@ namespace Other_Tests
         public void FindAircraft_ReturnsCorrectAircraft()
         {
             // Arrange
-            Airport airport = new Airport(new GeographicLocation(40.7128, -74.0060, "New York"));
-            Aircraft aircraft1 = new CommercialAircraft("Boeing 737", "ABC123", 150);
+            Airport airport = new Airport("New Air", "A000", new GeographicLocation(40.7128, -74.0060, "New York"));
+            Aircraft aircraft1 = new CommercialAircraft("Boeing-737", "ABC123", 150);
             Aircraft aircraft2 = new MilitaryAircraft("F-16", "12345", 2);
             airport.AddAircraft(aircraft1);
             airport.AddAircraft(aircraft2);
@@ -57,8 +62,8 @@ namespace Other_Tests
         public void FindCommercialAircraft_ReturnsCorrectCommercialAircraft()
         {
             // Arrange
-            Airport airport = new Airport(new GeographicLocation(40.7128, -74.0060, "New York"));
-            CommercialAircraft commercialAircraft = new CommercialAircraft("Boeing 737", "ABC123", 150);
+            Airport airport = new Airport("New Air", "A000", new GeographicLocation(40.7128, -74.0060, "New York"));
+            CommercialAircraft commercialAircraft = new CommercialAircraft("Boeing-737", "ABC123", 150);
             airport.AddAircraft(commercialAircraft);
 
             // Act
@@ -73,7 +78,7 @@ namespace Other_Tests
         public void FindMilitaryAircraft_ReturnsCorrectMilitaryAircraft()
         {
             // Arrange
-            Airport airport = new Airport(new GeographicLocation(40.7128, -74.0060, "New York"));
+            Airport airport = new Airport("New Air", "A000", new GeographicLocation(40.7128, -74.0060, "New York"));
             MilitaryAircraft militaryAircraft = new MilitaryAircraft("F-16", "12345", 2);
             airport.AddAircraft(militaryAircraft);
 

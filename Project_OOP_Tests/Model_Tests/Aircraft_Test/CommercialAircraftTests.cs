@@ -1,9 +1,9 @@
 ﻿using Project_OOP.Moldels;
-using Project_OOP;
 using Project_OOP.Moldels.Aircrafts;
 using Project_OOP.Models.Persons;
+using Project_OOP.Enums;
 
-namespace Aircraft_Tests
+namespace Model_Tests.AircraftTests
 {
     [TestClass]
     public class CommercialAircraftTests
@@ -12,15 +12,15 @@ namespace Aircraft_Tests
         public void ConstructorWithCrewSetsPropertiesCorrectly()
         {
             // Arrange
-            string model = "Boeing 737";
+            string model = "Boeing-737";
             string number = "ABC123";
             int numberOfSeats = 150;
 
             List<Person> passengerTrain = new List<Person>() {
-            new Pilot("John Doe", 38, 15, PersonalRole.Captain),
-            new Pilot("Jane Doe", 35, 10, PersonalRole.FirstPilot),
-            new Passenger("Женя", 19, "#0001")
-        };
+                new Pilot("John", 38, 15, PersonalRole.Captain),
+                new Pilot("Jane", 35, 10, PersonalRole.FirstPilot),
+                new Passenger("Женя", 19, "#0001")
+            };
 
             // Act
             CommercialAircraft commercialAircraft = new CommercialAircraft(model, number, numberOfSeats, passengerTrain);
@@ -36,7 +36,7 @@ namespace Aircraft_Tests
         public void ConstructorWithoutCrewSetsPropertiesCorrectly()
         {
             // Arrange
-            string model = "Boeing 737";
+            string model = "Boeing-737";
             string number = "ABC123";
             int numberOfSeats = 150;
 
@@ -61,11 +61,11 @@ namespace Aircraft_Tests
             };
             List<Person> passengerTrain = new List<Person>(validCrew) // Створюємо колекцію в якій буде наш склад (Пасажири, пілоти тощо. )
             {
-                new Passenger("Dan ", 30, "A00123"),
-                new Passenger("Ivan ", 22, "A00124")
+                new Passenger("Dan", 30, "A00123"),
+                new Passenger("Ivan", 22, "A00124")
             };
 
-            CommercialAircraft commercialAircraft = new CommercialAircraft("Boeing 737", "ABC123", 150, passengerTrain);
+            CommercialAircraft commercialAircraft = new CommercialAircraft("Boeing-737", "ABC123", 150, passengerTrain);
 
 
             // Act & Assert
@@ -77,12 +77,12 @@ namespace Aircraft_Tests
         public void SetCrew_SetsValidCrew()
         {
             // Arrange
-            CommercialAircraft commercialAircraft = new CommercialAircraft("Boeing 737", "ABC123", 150);
+            CommercialAircraft commercialAircraft = new CommercialAircraft("Boeing-737", "ABC123", 150);
 
             List<Person> validCrew = new List<Person>
             {
                 new Pilot("Captain", 40, 15, PersonalRole.Captain),
-                new Pilot("First Officer", 35, 10, PersonalRole.FirstPilot)
+                new Pilot("Ban", 35, 10, PersonalRole.FirstPilot)
             };
 
             // Act
@@ -101,7 +101,7 @@ namespace Aircraft_Tests
             List<Person> invalidCrew = new List<Person>
             {
                 new Pilot("Captain", 40, 15, PersonalRole.Captain),
-                new Passenger("John Doe", 30, "ABC123")
+                new Passenger("John", 30, "ABC123")
             };
 
             // Act & Assert
