@@ -7,6 +7,7 @@ using System;
 namespace ViewModel_Tests
 {
     [TestClass]
+    [TestCategory("ViewModelTests")]
     public class AirportVMTests
     {
         [TestMethod]

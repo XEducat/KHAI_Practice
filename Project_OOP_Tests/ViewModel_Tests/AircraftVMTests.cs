@@ -8,6 +8,7 @@ using Project_OOP.Enums;
 namespace ViewModel_Tests
 {
     [TestClass]
+    [TestCategory("ViewModelTests")]
     public class AircraftVMTests
     {
         [TestMethod]

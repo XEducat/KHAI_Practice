@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Project_OOP.Moldels.Aircrafts.CommercialAircraft" Collapsed="true">
+    <Position X="5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUEAAAAAABAAAAAEAAACAABAAAQAAAAAACAACAAAAAA=</HashCode>
+      <FileName>Models\Aircrafts\CommercialAircraft.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.Moldels.Aircrafts.MilitaryAircraft" Collapsed="true">
+    <Position X="7.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAEAAACAABAAAQAAAAAAQAACAAAAgA=</HashCode>
+      <FileName>Models\Aircrafts\MilitaryAircraft.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.Models.Persons.Passenger" Collapsed="true">
+    <Position X="11.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Persons\Passenger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.Models.Persons.Pilot" Collapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAIAEEEAAAAAAAAAAAAAAAAAEAAAABAA=</HashCode>
+      <FileName>Models\Persons\Pilot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.Interfaces.Aircraft" Collapsed="true">
+    <Position X="6.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAABAAABAAAAEEAEACAAAAAAQAAAAAARgAAAAIAAA=</HashCode>
+      <FileName>Models\Aircraft.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.Models.Airport" Collapsed="true">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAgAAAAAAAAAAIgAAQAAAAAAAAAQAAQAAAAABA=</HashCode>
+      <FileName>Models\Airport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeographicLocation" Collapsed="true">
+    <Position X="6.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAEAAAIAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GeographicLocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.Moldels.Person" Collapsed="true">
+    <Position X="10.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAQIAEAEgAAAQAAAAEABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PersonCreatedEventArgs" Collapsed="true">
+    <Position X="13.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\EventArgs\PersonCreatedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.ViewModels.AircraftVM" Collapsed="true">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAYAAAAABIAAAAJAAAggAAAAAEAAAAAGAAAA=</HashCode>
+      <FileName>ViewModels\AircraftVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.ViewModels.AirportVM" Collapsed="true">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>giAAAAAAAAAAAAAAAAACAAAIAgAAAgAAQAAAAAAAABA=</HashCode>
+      <FileName>ViewModels\AirportVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.ViewModels.NotificationService" Collapsed="true">
+    <Position X="15.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>ViewModels\NotificationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.ViewModels.PilotVM" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEEQAAABAAAEAAICAIAAAAhAAAgAAAAAAAAAAABAE=</HashCode>
+      <FileName>ViewModels\PilotVM.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.719" />
+  </Class>
+  <Class Name="Project_OOP.Forms.AircraftForm" Collapsed="true">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAAACSKAEAJAAAUCIAAACCCkYAAAAAKAAAACAAEA=</HashCode>
+      <FileName>Views\AircraftForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.AirportForm" Collapsed="true">
+    <Position X="11.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kADAAAgAACAgAEAAAECIAAAKAACYQwAAQSgAAAAACAA=</HashCode>
+      <FileName>Views\AirportForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.Views.PassengerForm" Collapsed="true">
+    <Position X="14.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAACAAAAIAAACAAAACAAAIAAAAAABAAAAABAQ=</HashCode>
+      <FileName>Views\PassengerForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_OOP.Views.PilotForm" Collapsed="true">
+    <Position X="13" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIAAAAAACAQCAiEBAIAAEIAAAAABAAAgA=</HashCode>
+      <FileName>Views\PilotForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Project_OOP.Enums.PersonalRole" Collapsed="true">
+    <Position X="4.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAkAAAAAAAAAAAIAAAAAAAAAAAAAAAAAIAAAAEAAAA=</HashCode>
+      <FileName>Enums\PersonalRole.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

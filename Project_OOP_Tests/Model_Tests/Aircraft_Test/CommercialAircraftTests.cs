@@ -6,6 +6,7 @@ using Project_OOP.Enums;
 namespace Model_Tests.AircraftTests
 {
     [TestClass]
+    [TestCategory("ModelTests")]
     public class CommercialAircraftTests
     {
         [TestMethod]

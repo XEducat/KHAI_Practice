@@ -6,6 +6,7 @@ using Project_OOP.Moldels.Aircrafts;
 namespace Model_Tests.AircraftTests
 {
     [TestClass]
+    [TestCategory("ModelTests")]
     public class MilitaryAircraftTests
     {
         [TestMethod]
